@@ -12,7 +12,7 @@
           type="text"
         />
         <button class="bg-green-500 text-white uppercase py-2 w-full shadow mt-2" @click="addDescription()">
-          Update Description
+          Update Descriptions
         </button>
       </div>
     </form>

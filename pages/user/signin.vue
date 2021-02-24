@@ -29,18 +29,16 @@ export default {
     }
   },
   methods: {
-    userSignIn() {
-      this.$store
-        .dispatch('USER_SIGN_IN_EMAIL', {
+    async userSignIn() {
+      try {
+        await this.$store.dispatch('USER_SIGN_IN_EMAIL', {
           email: this.email,
           password: this.password,
         })
-        .then(() => {
-          this.$router.push('/user/profile')
-        })
-        .catch((error) => {
-          alert(error.message)
-        })
+        this.$router.push('/user/profile')
+      } catch (error) {
+        alert(error.message)
+      }
     },
   },
 }

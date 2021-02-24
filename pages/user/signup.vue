@@ -31,20 +31,17 @@ export default {
     }
   },
   methods: {
-    userSignUp(err) {
-      if (err) return
-      this.$store
-        .dispatch('USER_SIGN_UP_EMAIL', {
+    async userSignUp() {
+      try {
+        await this.$store.dispatch('USER_SIGN_UP_EMAIL', {
           email: this.email,
           password: this.password,
           userName: this.userName,
         })
-        .then(() => {
-          this.$router.push('/user/profile')
-        })
-        .catch((err) => {
-          alert(err.message)
-        })
+        this.$router.push('/user/profile')
+      } catch (error) {
+        alert(error.message)
+      }
     },
   },
 }
